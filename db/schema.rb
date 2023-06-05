@@ -12,9 +12,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_604_141_441) do
+ActiveRecord::Schema[7.0].define(version: 20_230_604_155_322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'url_short_links', force: :cascade do |t|
+    t.string 'original_url', null: false
+    t.string 'base62_id_hash'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['base62_id_hash'], name: 'index_photos_on_base62_id_hash'
+    t.index ['original_url'], name: 'index_photos_on_original_url'
+  end
 
   create_table 'users', force: :cascade do |t|
     t.string 'email'

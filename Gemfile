@@ -17,6 +17,10 @@ gem 'simple_command'
 
 gem 'byebug'
 
+gem 'annotate'
+
+gem 'base62-rb'
+
 gem 'rubocop'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'

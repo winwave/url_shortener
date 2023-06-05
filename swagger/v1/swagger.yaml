@@ -1,0 +1,63 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      name: authorization
+      in: header
+      description: 'ex: Bearer c4571955261e50d0821d'
+paths:
+  "/authenticate":
+    post:
+      summary: Authentication get Token
+      tags:
+        - Users
+      parameters: []
+      responses:
+        '200':
+          description: authorized
+        '401':
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: 'example@mail.com'
+                password: '123123123'
+              required:
+                - email
+                - password
+  "/api/shorten":
+    post:
+      summary: Shortener Url
+      tags:
+        - Url
+      security:
+        - token: [ ]
+      parameters: []
+      responses:
+        '201':
+          description: shortener url created
+        '422':
+          description: error message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                original_url:
+                  type: string
+              required:
+                - original_url

@@ -171,7 +171,7 @@ For the POST /api/shorten you have to get the authorization token and login to u
 -----------------------------------------------------
 
 ## API
-There are two endpoints:
+There are three endpoints:
 
 ### Authentication
 `POST /authenticate`

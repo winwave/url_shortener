@@ -25,11 +25,11 @@ RSpec.configure do |config|
         securitySchemes: {
           token: {
             type: :apiKey,
-            name: "authorization",
+            name: 'authorization',
             in: :header,
-            description: "ex: Bearer c4571955261e50d0821d",
-          },
-        },
+            description: 'ex: Bearer c4571955261e50d0821d'
+          }
+        }
       },
       paths: {},
       servers: [

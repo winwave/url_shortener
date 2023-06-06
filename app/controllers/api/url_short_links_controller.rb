@@ -6,7 +6,6 @@ module Api
 
     def create
       item = UrlShortLink.find_or_create_by(original_url: url_short_link_params[:original_url])
-
       if item.save!
         render json: { url_shortener: "#{request.base_url}/#{item.base62_id_hash}" }, status: :created
       else
